@@ -1,0 +1,38 @@
+{% extends 'layouts/main.html' %}
+{% block title %}New Show Listing{% endblock %}
+{% block content %}
+  <div class="form-wrapper">
+    <form method="post" class="form" id="create_form">
+      <h3 class="form-heading">List a new show</h3>
+      <div class="form-group">
+        <label for="artist_id">Artist ID</label>
+        <small>ID can be found on the Artist's Page</small>
+        {{ form.artist_id(class_ = 'form-control', autofocus = true) }}
+        <section class="hidden" style="margin: 0; padding: 0">
+          <small id="warning"></small>
+          <small id="from_time"></small>
+          <br>
+          <small id="to_time"></small>
+        </section>
+      </div>
+      <div class="form-group">
+        <label for="venue_id">Venue ID</label>
+        <small>ID can be found on the Venue's Page</small>
+        {{ form.venue_id(class_ = 'form-control', autofocus = true) }}
+        <section class="hidden" style="margin: 0; padding: 0">
+          <small id="warning"></small>
+        </section>
+      </div>
+      <div class="form-group">
+          <label for="start_time">Start Time</label>
+          <small>ISO format. Ex: 2021-04-10 09:26:01</small>
+          {{ form.start_time(class_ = 'form-control', placeholder='YYYY-MM-DD HH:MM', autofocus = true) }}
+          <section class="hidden" style="margin: 0; padding: 0">
+            <small id="warning"></small>
+          </section>
+
+        </div>
+      <input type="submit" value="Create Show" class="btn btn-primary btn-lg btn-block" id="create_show">
+    </form>
+  </div>
+{% endblock %}
